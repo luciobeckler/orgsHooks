@@ -2,9 +2,9 @@ import React from 'react'
 import { StyleSheet, Text } from 'react-native'
 import Topo from './components/Topo'
 
-export default function TelaProdutores() {
+export default function TelaProdutores({ topo }) {
   return (
-    <Topo></Topo>
+    <Topo {...topo}></Topo>
   )
 }
 
