@@ -1,5 +1,7 @@
 import Home from "../mocks/Home";
 
-export const carregaHome = () => {
+const carregaHome = () => {
     return Home;
 }
+
+export default carregaHome;

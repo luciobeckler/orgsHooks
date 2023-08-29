@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Image, SafeAreaView, View } from 'react-native'
 import { StyleSheet, Text } from 'react-native'
+import carregaHome from '../../../../services/carregaDados'
 
 
 export default function Topo({ imagem, titulo, descricao }) {
+
+    const atualizaTopo = () => {
+        const retorno = carregaHome();
+        console.log(retorno)
+    }
+
+    useEffect(() => {
+        // Código a ser executado após o componente ser montado (equivalente a componentDidMount)
+        console.log('Componente montado');
+        atualizaTopo();
+
+        // Retorno de função para executar limpeza (equivalente a componentWillUnmount)
+        return () => {
+            console.log('Componente desmontado');
+        };
+    }, []); // O segundo argumento vazio [] indica que este efeito só é executado uma vez, como o componentDidMount
+
     return (
         <View style={estilos.container}>
             <Image style={estilos.imagem} source={imagem}></Image>
@@ -12,7 +30,6 @@ export default function Topo({ imagem, titulo, descricao }) {
         </View>
     )
 }
-
 
 const estilos = StyleSheet.create({
     container: {
