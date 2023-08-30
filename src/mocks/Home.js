@@ -18,7 +18,6 @@ const numeroAleatorio = (min, max) => {
 
 const Home = {
     topo: {
-        imagem: logo,
         boasVindas: "Olá Lúcio!",
         legenda: "Encontre os melhores produtos"
     },

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Image, SafeAreaView, View } from 'react-native'
 import { StyleSheet, Text } from 'react-native'
+
 import carregaHome from '../../../../services/carregaDados'
+import logo from '../../../../../assets/images/logo.png'
 
-
-export default function Topo({ imagem }) {
+export default function Topo() {
 
 
     const [topo, setTopo] = useState({
@@ -35,7 +36,7 @@ export default function Topo({ imagem }) {
 
     return (
         <View style={estilos.container}>
-            <Image style={estilos.imagem} source={imagem}></Image>
+            <Image style={estilos.imagem} source={logo}></Image>
             <Text style={estilos.boasVindas} >{topo.boasVindas}</Text>
             <Text style={estilos.legenda}>{topo.legenda}</Text>
         </View>
