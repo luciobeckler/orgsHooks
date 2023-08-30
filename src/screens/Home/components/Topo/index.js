@@ -1,15 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Image, SafeAreaView, View } from 'react-native'
 import { StyleSheet, Text } from 'react-native'
 import carregaHome from '../../../../services/carregaDados'
 
 
-export default function Topo({ imagem, titulo, descricao }) {
+export default function Topo({ imagem }) {
+
+
+    const [topo, setTopo] = useState({
+        boasVindas: '',
+        legenda: ''
+    });
 
     const atualizaTopo = () => {
         const retorno = carregaHome();
-        console.log(retorno)
-    }
+
+        // Desestruturação dos valores do retorno
+        const { topo: novoTopo } = retorno;
+
+        // Atualização do estado com os valores desestruturados
+        setTopo(novoTopo);
+    };
 
     useEffect(() => {
         // Código a ser executado após o componente ser montado (equivalente a componentDidMount)
@@ -25,8 +36,8 @@ export default function Topo({ imagem, titulo, descricao }) {
     return (
         <View style={estilos.container}>
             <Image style={estilos.imagem} source={imagem}></Image>
-            <Text style={estilos.titulo} >{titulo}</Text>
-            <Text style={estilos.descricao}>{descricao}</Text>
+            <Text style={estilos.boasVindas} >{topo.boasVindas}</Text>
+            <Text style={estilos.legenda}>{topo.legenda}</Text>
         </View>
     )
 }
@@ -41,15 +52,17 @@ const estilos = StyleSheet.create({
         height: 28,
         width: 70
     },
-    titulo: {
+    boasVindas: {
         fontWeight: 'bold',
         fontSize: 26,
-        lineHeight: 42
+        lineHeight: 42,
+        color: '#464646'
     },
-    descricao: {
+    legenda: {
         fontSize: 16,
         lineHeight: 26,
         paddingBottom: 16,
+        color: '#A3A3A3'
 
     }
 })
