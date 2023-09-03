@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, StyleSheet, Text } from 'react-native'
+import { FlatList, Image, StyleSheet, Text, View } from 'react-native'
 import carregaHome from '../../../../services/carregaDados'
+import Produtor from './Produtor/Produtor'
 
 export default function Produtores({ topo: Topo }) {
 
@@ -23,7 +24,13 @@ export default function Produtores({ topo: Topo }) {
 
     return <FlatList
         data={lista}
-        renderItem={({ item: { nome, imagem, distancia, estrela } }) => <Text>{nome}</Text>}
+        renderItem={({ item: { nome, imagem, distancia, estrela } }) =>
+            <Produtor nome={nome}
+                imagem={imagem}
+                distancia={distancia}
+                estrela={estrela}>
+            </Produtor>
+        }
         keyExtractor={(item) => item.nome}
         ListHeaderComponent={() => headerLista()}
     />
