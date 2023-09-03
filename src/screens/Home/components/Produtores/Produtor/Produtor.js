@@ -1,7 +1,10 @@
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
+import Estrelas from '../../../../../components/Estrelas.js'
+import estrelaAtiva from '../../../../../../assets/images/estrela.png'
+import estrelaDesativada from '../../../../../../assets/images/estrelaCinza.png'
 
-export default function Produtor({ nome, imagem, distancia, estrela }) {
+export default function Produtor({ nome, imagem, distancia, estrela: quantidadeEstrela }) {
     return (
         <View style={estilos.container}>
             <View style={estilos.containerSecundario}>
@@ -9,6 +12,7 @@ export default function Produtor({ nome, imagem, distancia, estrela }) {
                 <Image style={estilos.imagem} source={imagem} />
                 <View style={estilos.containerColumn}>
                     <Text style={estilos.nome}>{nome}</Text>
+                    <Estrelas estrelaAtiva={estrelaAtiva} estrelaDesativada={estrelaDesativada} quantidade={quantidadeEstrela} editavel={false} grande={false}></Estrelas>
                 </View>
             </View>
             <Text style={estilos.distancia}>{distancia}</Text>
@@ -29,6 +33,17 @@ const estilos = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
 
+        //Andrioid
+        elevation: 4,
+
+        //IOS
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: .23,
+        shadowRadius: 2.62
     },
     imagem: {
         height: 50,
