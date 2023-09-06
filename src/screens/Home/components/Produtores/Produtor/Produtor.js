@@ -12,7 +12,7 @@ export default function Produtor({ nome, imagem, distancia, estrela: quantidadeE
                 <Image style={estilos.imagem} source={imagem} />
                 <View style={estilos.containerColumn}>
                     <Text style={estilos.nome}>{nome}</Text>
-                    <Estrelas estrelaAtiva={estrelaAtiva} estrelaDesativada={estrelaDesativada} quantidade={quantidadeEstrela} editavel={false} grande={false}></Estrelas>
+                    <Estrelas estrelaAtiva={estrelaAtiva} estrelaDesativada={estrelaDesativada} quantidade={quantidadeEstrela} editavel={false} grande={true}></Estrelas>
                 </View>
             </View>
             <Text style={estilos.distancia}>{distancia}</Text>
