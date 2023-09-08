@@ -1,22 +1,26 @@
-import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import React, { useState } from 'react'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Estrelas from '../../../../../components/Estrelas.js'
-import estrelaAtiva from '../../../../../../assets/images/estrela.png'
-import estrelaDesativada from '../../../../../../assets/images/estrelaCinza.png'
 
 export default function Produtor({ nome, imagem, distancia, estrela: quantidadeEstrela }) {
+    const [selecionado, setSelecionado] = useState(false)
+    const [editavel, setEditavel] = useState(false)
+
     return (
-        <View style={estilos.container}>
+        <TouchableOpacity
+            style={estilos.container}
+            onPress={() => { setSelecionado(!selecionado); setEditavel(!editavel) }}
+        >
             <View style={estilos.containerSecundario}>
 
-                <Image style={estilos.imagem} source={imagem} />
+                <Image style={estilos.imagem} source={imagem} accessibilityLabel={nome} />
                 <View style={estilos.containerColumn}>
                     <Text style={estilos.nome}>{nome}</Text>
-                    <Estrelas estrelaAtiva={estrelaAtiva} estrelaDesativada={estrelaDesativada} quantidade={quantidadeEstrela} editavel={false} grande={true}></Estrelas>
+                    <Estrelas quantidade={quantidadeEstrela} editavel={editavel} grande={selecionado}></Estrelas>
                 </View>
             </View>
             <Text style={estilos.distancia}>{distancia}</Text>
-        </View>
+        </TouchableOpacity>
     )
 }
 
