@@ -1,15 +1,24 @@
-import React, { useState } from 'react'
+import React, { useReducer, useState } from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Estrelas from '../../../../../components/Estrelas.js'
 
 export default function Produtor({ nome, imagem, distancia, estrela: quantidadeEstrela }) {
-    const [selecionado, setSelecionado] = useState(false)
-    const [editavel, setEditavel] = useState(false)
+    const [selecionado, inverterSelecionado] = useReducer(
+        (selecionado) => !selecionado,
+        false
+    )
+    const [editavel, inverterEditavel] = useReducer(
+        (editavel) => !editavel,
+        false
+    )
 
     return (
         <TouchableOpacity
             style={estilos.container}
-            onPress={() => { setSelecionado(!selecionado); setEditavel(!editavel) }}
+            onPress={() => {
+                inverterEditavel();
+                inverterSelecionado();
+            }}
         >
             <View style={estilos.containerSecundario}>
 
@@ -20,7 +29,7 @@ export default function Produtor({ nome, imagem, distancia, estrela: quantidadeE
                 </View>
             </View>
             <Text style={estilos.distancia}>{distancia}</Text>
-        </TouchableOpacity>
+        </TouchableOpacity >
     )
 }
 
