@@ -1,6 +1,11 @@
-import React, { useReducer, useState } from 'react'
+import React, { useMemo, useReducer, useState } from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Estrelas from '../../../../../components/Estrelas.js'
+
+const distanciaEmMetros = (distancia) => {
+    console.log('distanciaEmMetros')
+    return `${distancia}m`;
+}
 
 export default function Produtor({ nome, imagem, distancia, estrela: quantidadeEstrela }) {
     const [selecionado, inverterSelecionado] = useReducer(
@@ -10,6 +15,12 @@ export default function Produtor({ nome, imagem, distancia, estrela: quantidadeE
     const [editavel, inverterEditavel] = useReducer(
         (editavel) => !editavel,
         false
+    )
+
+
+
+    const distanciaTexto = useMemo(() =>
+        distanciaEmMetros(distancia), [distancia]
     )
 
     return (
@@ -28,7 +39,7 @@ export default function Produtor({ nome, imagem, distancia, estrela: quantidadeE
                     <Estrelas quantidade={quantidadeEstrela} editavel={editavel} grande={selecionado}></Estrelas>
                 </View>
             </View>
-            <Text style={estilos.distancia}>{distancia}</Text>
+            <Text style={estilos.distancia}>{distanciaEmMetros(distancia)}</Text>
         </TouchableOpacity >
     )
 }

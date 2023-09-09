@@ -27,31 +27,31 @@ const Home = {
             {
                 nome: 'Green',
                 imagem: green,
-                distancia: `${numeroAleatorio(1, 500)}m`,
+                distancia: `${numeroAleatorio(1, 500)}`,
                 estrela: numeroAleatorio(1, 5)
             },
             {
                 nome: 'Grow',
                 imagem: grow,
-                distancia: `${numeroAleatorio(1, 500)}m`,
+                distancia: `${numeroAleatorio(1, 500)}`,
                 estrela: numeroAleatorio(1, 5)
             },
             {
                 nome: 'Jenny-Jack',
                 imagem: jennyJack,
-                distancia: `${numeroAleatorio(1, 500)}m`,
+                distancia: `${numeroAleatorio(1, 500)}`,
                 estrela: numeroAleatorio(1, 5)
             },
             {
                 nome: 'Potager',
                 imagem: potager,
-                distancia: `${numeroAleatorio(1, 500)}m`,
+                distancia: `${numeroAleatorio(1, 500)}`,
                 estrela: numeroAleatorio(1, 5)
             },
             {
                 nome: 'Salad',
                 imagem: salad,
-                distancia: `${numeroAleatorio(1, 500)}m`,
+                distancia: `${numeroAleatorio(1, 500)}`,
                 estrela: numeroAleatorio(1, 5)
             }
         ]
